@@ -1,9 +1,12 @@
 <script setup>
+import Card from './Card.vue'
+
 
 defineProps({
   items: Array,
 })
-import Card from './Card.vue'
+
+const emit = defineEmits(['addToFavorite']);
 
 
 </script>
@@ -11,11 +14,15 @@ import Card from './Card.vue'
   <div class="grid grid-cols-4 gap-5">
     <Card
       v-for="item in items"
-        :key="item.id"
-        :title="item.title"
-        :image-url="item.imageUrl"
-        :price="item.price"
-        :on-click-add="onClickAdd"
+      :key="item.id"
+      :id="item.id"
+      :title="item.title"
+      :image-url="item.imageUrl"
+      :price="item.price"
+      :onClickFavorite="() => emit('addToFavorite', item)"
+      :isFavorite="item.isFavorite"
+
+
     />
 
   </div>
