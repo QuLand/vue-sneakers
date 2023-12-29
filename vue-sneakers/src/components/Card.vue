@@ -9,7 +9,7 @@
     isFavorite: Boolean,
     isAdded: Boolean,
     onClickFavorite: Function,
-    onClickAdd: Function
+    onClickAdd: Function,
   })
 
 
@@ -31,8 +31,7 @@
       </div>
 
       <img
-           @click="onClickAdd"
-           :src="!isAdded ? '/plus.svg' : '/checked.svg'" alt="plus" />
+           @click="onClickAdd" :src="!isAdded ? '/plus.svg' : '/checked.svg'" alt="plus" />
     </div>
   </div>
 </template>
